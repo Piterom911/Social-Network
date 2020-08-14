@@ -1,8 +1,9 @@
 import React from "react";
+import s from "./Sidebar.module.scss"
 
 const Sidebar = () => {
     return (
-        <aside>
+        <aside className={s.sidebar}>
             <ul>
                 <li><a href="#notMatter">Profile</a></li>
                 <li><a href="#notMatter">Messages</a></li>

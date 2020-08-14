@@ -23,58 +23,8 @@ a {
   }
 }
 
-header {
-  background-color: $bgLight;
-  max-height: 100px;
-
-  .container_header {
-    display: flex;
-    align-items: center;
-
-    .logo {
-      margin-right: 50px;
-
-      img {
-        max-height: 100px;
-      }
-    }
-
-    nav {
-
-      ul {
-        display: flex;
-        align-items: flex-start;
-
-        li {
-          padding: 0 15px;
-        }
-      }
-    }
-  }
-}
-
 .main-content {
   display: flex;
   align-items: flex-start;
   margin-top: 20px;
-
-  aside {
-    margin-right: 20px;
-    flex-basis: 300px;
-    flex-shrink: 0;
-    background-color: $bgLight;
-  }
-
-  main {
-    flex-basis: 100%;
-
-    .main-img-wrap {
-      max-height: 260px;
-      overflow-y: hidden;
-
-      .main-img {
-        width: 100%;
-      }
-    }
-  }
 }

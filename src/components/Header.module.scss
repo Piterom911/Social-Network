@@ -1,0 +1,30 @@
+@import "./../custom";
+.header {
+  background-color: $bgLight;
+  max-height: 100px;
+
+  .container_header {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-right: 50px;
+
+      img {
+        max-height: 100px;
+      }
+    }
+
+    nav {
+
+      ul {
+        display: flex;
+        align-items: flex-start;
+
+        li {
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+}

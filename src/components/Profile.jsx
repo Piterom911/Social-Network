@@ -1,10 +1,11 @@
 import React from "react";
+import style from "./Profile.module.scss"
 
 const Profile = () => {
     return (
-        <main>
-            <div className="main-img-wrap">
-                <img src="https://wallpaperaccess.com/full/506796.jpg" alt="main-image" className="main-img"/>
+        <main className={style.main}>
+            <div className={style.imgWrap}>
+                <img src="https://wallpaperaccess.com/full/506796.jpg" alt="main-image" className={style.img}/>
             </div>
             <div className="profile-data">
                 <img
