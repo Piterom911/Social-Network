@@ -1,11 +1,17 @@
 @import-normalize;
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 $bgLight: #ececec;
 $linkColor: #282c34;
 $linkHover: #7865c5;
 
 body {
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
+}
+
+button, input {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
   font-family: 'Lato', sans-serif;

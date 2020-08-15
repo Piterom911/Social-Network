@@ -1,28 +1,68 @@
 @import "../../custom";
+
 .header {
   background-color: $bgDark;
-  max-height: 100px;
+  max-height: 70px;
+  padding: 7px 0;
 
   .container_header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     .logo {
       margin-right: 50px;
-
-      img {
-        max-height: 100px;
-      }
     }
 
-    nav {
+    .nav {
+      display: flex;
+      align-items: center;
 
-      ul {
+      .search {
+
+        .formGroup {
+          position: relative;
+
+          .icon {
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            color: #fff;
+            font-size: 9px;
+          }
+
+          .formControl {
+            background: rgba(255, 255, 255, 0.2);
+            border: 0;
+            box-shadow: none;
+            min-width: 235px;
+            color: #fff;
+            height: 26px;
+            border-radius: 13px;
+            font-size: 13px;
+            padding-left: 30px;
+            font-weight: 300;
+            box-sizing: border-box;
+          }
+        }
+      }
+
+      .list {
         display: flex;
         align-items: flex-start;
 
-        li {
+        .item {
           padding: 0 15px;
+
+          .link {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+
+            &:hover {
+              color: $txtBlue;
+            }
+          }
         }
       }
     }
