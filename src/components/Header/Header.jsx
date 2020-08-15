@@ -6,7 +6,7 @@ const Header = () => {
         <header className={style.header}>
             <div className={`container ${style.container_header}`}>
                 <a href="#main" className={style.logo}>
-                    <img src="https://lh3.googleusercontent.com/proxy/3uTDRI_01tT9C1LtM3oLGqjSDTHCPkDySZ8XFnzoZ_Y94ESymCQ4WrTuRMngK0NVF57Vv5U1gE41b8OwNStgCEG3GDWE8xvE17F_cftZlwyaP3a5IeV49w" alt="logo"/>
+                    <img src="./logo-header.png" alt=""/>
                 </a>
                 <nav>
                     <ul>

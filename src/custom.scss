@@ -1,3 +1,24 @@
-$bgLight: #ececec;
-$linkColor: #282c34;
-$linkHover: #7865c5;
+$bgDark: #231F20;
+$bgBlue: rgba(39,170,225, .1);
+$bgGreen: rgba(141,198,63, .1);
+$txtBlue: #27aae1;
+$txtBlueHover: #149AC9;
+$txtGreen: #8dc63f;
+$txtGreenHover: #39b54a;
+$txtLightGrey: #939598;
+$txtGrey: #6d6e71;
+$txtDark: #4d4d4d;
+$gradBlue: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8));
+$gradGreen: linear-gradient(to bottom, rgba(141,198,63, 1), rgba(0,148,68, 1));
+
+%btnPrimary {
+  background: #27aae1;
+  padding: 7px 25px;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+  font-weight: 600;
+  outline: none;
+  border-radius: 30px;
+}

@@ -1,0 +1,12 @@
+@import "../../../custom";
+
+  .profile {
+
+    .avatar {
+      max-width: 100%;
+    }
+
+    .btn {
+      @extend %btnPrimary;
+    }
+  }

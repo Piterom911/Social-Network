@@ -1,16 +1,13 @@
 import React from "react";
-import style from "./Profile.module.scss"
+import s from "./Profile.module.scss"
 
 const Profile = () => {
     return (
-        <main className={style.main}>
-            <div className={style.imgWrap}>
-                <img src="https://wallpaperaccess.com/full/506796.jpg" alt="main-image" className={style.img}/>
-            </div>
+        <div className={s.profile}>
             <div className="profile-data">
                 <img
                     src="https://d17bobgtnxioyl.cloudfront.net/cdn/beautifulpeople/images/default_profile/signup_male.png"
-                    alt="profile photo" className="avatar"/>
+                    alt="profile photo" className={s.avatar}/>
                 <div className="profile-description">
                     <h1 className="profile-name">Roman Dogoda</h1>
                     <ul>
@@ -19,10 +16,11 @@ const Profile = () => {
                         <li>Education: Web Courses</li>
                         <li>E-Mail: piterom911@gmail.com</li>
                     </ul>
+
+                    <button className={s.btn}>hello</button>
                 </div>
             </div>
-            <div className="posts">Posts</div>
-        </main>
+        </div>
     )
 };
 

@@ -1,0 +1,6 @@
+@import "../../custom";
+.sidebar {
+  margin-right: 20px;
+  flex-basis: calc(25% - 20px);
+  flex-shrink: 0;
+}

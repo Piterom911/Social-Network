@@ -1,9 +1,11 @@
 import React from "react";
 import s from "./Sidebar.module.scss"
+import Profile from "./Profile/Profile";
 
 const Sidebar = () => {
     return (
         <aside className={s.sidebar}>
+            < Profile/>
             <ul>
                 <li><a href="#notMatter">Profile</a></li>
                 <li><a href="#notMatter">Messages</a></li>
