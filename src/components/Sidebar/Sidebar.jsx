@@ -1,18 +1,24 @@
 import React from "react";
 import s from "./Sidebar.module.scss"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {
+    faComments,
+    faImages,
+    faNewspaper,
+    faUserFriends,
+    faUserPlus,
+    faUsers,
+    faVideo
+} from '@fortawesome/free-solid-svg-icons'
 import Profile from "./Profile/Profile";
+import {NavLink} from "react-router-dom";
+import Navigation from "./Navigation/Navigation";
 
 const Sidebar = () => {
     return (
         <aside className={s.sidebar}>
             < Profile/>
-            <ul>
-                <li><a href="#notMatter">Profile</a></li>
-                <li><a href="#notMatter">Messages</a></li>
-                <li><a href="#notMatter">News</a></li>
-                <li><a href="#notMatter">Music</a></li>
-                <li><a href="#notMatter">Settings</a></li>
-            </ul>
+            <Navigation/>
         </aside>
     )
 };
