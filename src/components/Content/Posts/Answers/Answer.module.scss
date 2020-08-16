@@ -1,0 +1,29 @@
+@import "../../../../custom";
+
+.answer {
+  margin: 10px 0 10px 65px;
+  display: inline-flex;
+
+  .ava {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .text{
+    margin: 0 0 10px 10px;
+    font-size: 13px;
+    line-height: 26px;
+    color: $txtGrey;
+
+    .name{
+      color: $txtBlue;
+      font-weight: 600;
+      margin-right: 5px;
+
+      &:hover {
+        color: $txtBlueHover;
+      }
+    }
+  }
+}

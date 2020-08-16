@@ -1,0 +1,13 @@
+@import "../../custom";
+
+.sidebar {
+  flex-basis: calc(17% - 10px);
+  margin-left: 20px;
+
+  .title {
+    color: $txtGrey;
+    margin: 0 auto 20px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
