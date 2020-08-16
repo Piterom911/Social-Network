@@ -1,5 +1,5 @@
 @import "../../custom";
 
 .content {
-  flex-basis: 75%;
+  flex-basis: calc(58% - 10px);
 }

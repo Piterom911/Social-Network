@@ -1,0 +1,38 @@
+@import "../../../custom";
+
+  .person {
+    display: flex;
+    margin-bottom: 20px;
+
+    .ava {
+      flex-shrink: 0;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    .data {
+      margin-left: 10px;
+
+      .name {
+        color: $txtBlue;
+        margin-bottom: 10px;
+        font-size: 14px;
+
+        &:hover {
+          color: $txtBlueHover;
+          text-decoration: underline;
+        }
+      }
+
+      .btn {
+        color: $txtGreen;
+        font-size: 14px;
+
+        &:hover {
+          color: $txtGreenHover;
+          text-decoration: underline;
+        }
+      }
+    }
+  }

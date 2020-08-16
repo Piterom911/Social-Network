@@ -8,12 +8,21 @@ $linkHover: #7865c5;
 body {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
-  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0  0 10px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+
+p {
+  line-height: 2em;
 }
 
 button, input {
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
   font-family: 'Lato', sans-serif;
 }
 
@@ -30,8 +39,10 @@ a {
   text-decoration: none;
   color: $linkColor;
   transition: color .1s ease-in-out;
+  font-size: 14px;
 
   &:hover {
+    text-decoration: underline;
     color: $linkHover;
   }
 }

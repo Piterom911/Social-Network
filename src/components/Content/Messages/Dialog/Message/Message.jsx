@@ -9,7 +9,7 @@ const Message = (props) => {
                 <h5 className={s.name}>{props.name}</h5>
                 <span className={s.date}>{props.date}</span>
             </div>
-            <div className={s.text}>{props.message}</div>
+            <p className={s.text}>{props.message}</p>
         </div>
     )
 };
