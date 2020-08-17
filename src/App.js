@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Content from "./components/Content/Content";
 import Follow from "./components/Follow/Follow";
 import {BrowserRouter} from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
                     <Follow/>
 
                 </div>
+
+                <Footer/>
             </div>
         </BrowserRouter>
     );

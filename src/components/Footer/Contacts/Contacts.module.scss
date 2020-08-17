@@ -1,0 +1,33 @@
+@import "../../../custom";
+
+.contacts {
+  max-width: 260px;
+  width: 100%;
+  padding: 0 10px;
+
+  .title {
+    font-size: 14px;
+    color: $txtBlue;
+  }
+
+  .list {
+    margin: 0;
+    padding: 0;
+
+    .item {
+      list-style: none;
+      padding: 20px 0;
+      border-bottom: 1px solid #f1f2f2;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 15px;
+      color: #6d6e71;
+
+      .icon {
+        margin-right: 20px;
+        color: #27AAE1;
+        font-size: 12px;
+      }
+    }
+  }
+}
