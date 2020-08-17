@@ -9,6 +9,4 @@ const New = (props) => {
         </form>
     )
 };
-
-
 export default New;

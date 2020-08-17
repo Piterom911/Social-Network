@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.scss';
 import Header from "./components/Header/Header";
-import Navigation from "./components/Sidebar/Navigation/Navigation";
+import Sidebar from "./components/Sidebar/Sidebar";
 import Content from "./components/Content/Content";
 import Follow from "./components/Follow/Follow";
 import {BrowserRouter} from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
 
 
 function App() {

@@ -1,10 +1,12 @@
 @import "../../../../custom";
 
-.dialog {
-  overflow-y: auto;
+.contacts {
   height: 400px;
-  padding-right: 2px;
-  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  overflow-y: auto;
+  flex-basis: 40%;
+  flex-shrink: 0;
 
   &::-webkit-scrollbar { width: 8px; height: 8px;}
   &::-webkit-scrollbar-button {  display: none }

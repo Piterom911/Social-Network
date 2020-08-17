@@ -1,0 +1,49 @@
+@import "../../../../../custom";
+
+.contact {
+  position: relative;
+  padding: 10px 10px 10px 60px;
+  border-bottom: 1px solid #f1f2f2;
+  display: block;
+  margin-right: 5px;
+
+  &:hover {
+    border-bottom: 1px solid $txtGreen;
+    text-decoration: none;
+  }
+
+  .ava {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    top: 20px;
+    left: 10px;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .name {
+      color: $txtBlue;
+      font-size: 12px;
+      margin: 10px 0;
+    }
+    .time {
+      color: $txtLightGrey;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+  }
+  .info {
+    overflow: hidden;
+    .excerpt {
+      font-size: 13px;
+      color: #939598;
+      max-width: 100px;
+      white-space: nowrap;
+      display: block;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+  }
+}

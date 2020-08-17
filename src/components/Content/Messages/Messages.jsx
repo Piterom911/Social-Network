@@ -1,12 +1,12 @@
 import React from "react";
 import s from "./Messages.module.scss";
-import Contacts from "./Contacts/Contacts";
+import ContactList from "./ContactList/ContactList";
 import Dialog from "./Dialog/Dialog";
 
 const Messages = () => {
     return (
         <div className={s.messages}>
-            <Contacts/>
+            <ContactList/>
             <Dialog/>
         </div>
     )
