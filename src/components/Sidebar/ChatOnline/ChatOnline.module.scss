@@ -1,0 +1,27 @@
+@import "../../../custom.scss";
+
+.chat {
+
+  .btn {
+    background: #8dc63f;
+    display: block;
+    box-sizing: border-box;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    position: relative;
+    margin: 0 auto 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .list {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    margin: 0;
+  }
+}
