@@ -9,11 +9,11 @@ import Friends from "./Friends/Friends";
 import Images from "./Images/Images";
 import Videos from "./Videos/Videos";
 
-const Content = () => {
+const Content = (props) => {
     return (
         <div className={s.content}>
             <Top/>
-            <Route path="/messages" component={Messages}/>
+            <Route path="/messages" render={ () => <Messages contacts={props.contacts}/> } />
             <Route path="/posts" component={Posts}/>
             <Route path="/nearby" component={Nearby}/>
             <Route path="/friends" component={Friends}/>

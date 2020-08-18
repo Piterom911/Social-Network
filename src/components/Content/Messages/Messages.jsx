@@ -3,10 +3,11 @@ import s from "./Messages.module.scss";
 import ContactList from "./ContactList/ContactList";
 import Dialog from "./Dialog/Dialog";
 
-const Messages = () => {
+const Messages = (props) => {
+
     return (
         <div className={s.messages}>
-            <ContactList/>
+            <ContactList contacts={props.contacts}/>
             <Dialog/>
         </div>
     )

@@ -8,7 +8,8 @@ import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 
 
-function App() {
+function App(props) {
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -19,7 +20,7 @@ function App() {
 
                     <Sidebar/>
 
-                    <Content/>
+                    <Content contacts={props.contacts}/>
 
                     <Follow/>
 
