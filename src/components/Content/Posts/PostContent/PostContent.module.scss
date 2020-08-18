@@ -1,0 +1,115 @@
+@import "../../../../custom";
+
+.content {
+
+  .top {
+    display: flex;
+    position: relative;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 65px;
+      height: 1px;
+      width: calc(100% - 65px);
+      background-color: #e6e6e6;
+    }
+
+    .ava {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    .info {
+      margin-left: 15px;
+
+      .name{
+        color: $txtBlue;
+        font-weight: 600;
+
+        &:hover {
+          color: $txtBlueHover;
+        }
+      }
+
+      .following{
+        color: #8dc63f;
+        font-size: 12px;
+        margin-left: 20px;
+      }
+
+      .time{
+        color: $txtLightGrey;
+        font-size: 13px;
+      }
+    }
+
+    .likes {
+      margin-left: auto;
+
+      .thumb {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+
+        .icon {
+          font-size: 12px;
+        }
+      }
+
+      .positive{
+        color: $txtGreen;
+
+        &:hover {
+          color: $txtGreenHover;
+        }
+      }
+
+      .negative{
+        color: #ef4136;
+
+        &:hover {
+          color: #d6100b;
+        }
+      }
+    }
+  }
+
+  .message {
+    margin: 10px 0 10px 65px;
+    padding-bottom: 10px;
+    position: relative;
+    color: $txtGrey;
+    line-height: 24px;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #e6e6e6;
+    }
+  }
+}
