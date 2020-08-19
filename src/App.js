@@ -18,9 +18,9 @@ function App(props) {
 
                 <div className="container main-content">
 
-                    <Sidebar/>
+                    <Sidebar chat={props.state.sidebar}/>
 
-                    <Content contacts={props.contacts}/>
+                    <Content data={props.state.content}/>
 
                     <Follow/>
 
