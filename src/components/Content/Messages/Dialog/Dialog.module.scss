@@ -1,16 +1,18 @@
 @import "../../../../custom";
 
-.dialog {
-  overflow-y: auto;
-  height: 400px;
-  padding-right: 2px;
-  box-sizing: border-box;
+.sendBox {
+  .dialog {
+    overflow-y: auto;
+    height: 400px;
+    padding-right: 2px;
+    box-sizing: border-box;
 
-  &::-webkit-scrollbar { width: 8px; height: 8px;}
-  &::-webkit-scrollbar-button {  display: none }
-  &::-webkit-scrollbar-track {  background-color: #d9d9d9; border-radius: 8px;}
-  &::-webkit-scrollbar-track-piece { background-color: #eeeeee; border-radius: 8px;}
-  &::-webkit-scrollbar-thumb { height: 50px; background-color: #d9d9d9; border-radius: 8px;}
-  &::-webkit-scrollbar-corner { background-color: #999;}
-  &::-webkit-resizer { background-color: #666;}
+    &::-webkit-scrollbar { width: 8px; height: 8px;}
+    &::-webkit-scrollbar-button {  display: none }
+    &::-webkit-scrollbar-track {  background-color: #d9d9d9; border-radius: 8px;}
+    &::-webkit-scrollbar-track-piece { background-color: #eeeeee; border-radius: 8px;}
+    &::-webkit-scrollbar-thumb { height: 50px; background-color: #d9d9d9; border-radius: 8px;}
+    &::-webkit-scrollbar-corner { background-color: #999;}
+    &::-webkit-resizer { background-color: #666;}
+  }
 }
