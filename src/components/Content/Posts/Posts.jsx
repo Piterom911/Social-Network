@@ -13,9 +13,7 @@ const Posts = (props) => {
             <div className={s.data}>
                 <PostContent/>
                 { postMapData }
-                <New newValue={props.posts.newValue}
-                     changeValue={props.changeValue}
-                     addNewPost={props.addNewPost}/>
+                <New dispatch={props.dispatch} />
             </div>
         </div>
     )

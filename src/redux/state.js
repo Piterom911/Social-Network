@@ -108,12 +108,14 @@ let store = {
             ]
         }
     },
+    _callSubscriber() {},
 
     getState() {
         return this._state;
     },
-
-    _callSubscriber() {},
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
 
     addNewPost() {
         let newPost = {
@@ -131,8 +133,20 @@ let store = {
         this._callSubscriber(this._state);
     },
 
-    subscribe(observer) {
-        this._callSubscriber = observer;
+    dispatch(action) {
+      if (action.type === "ADD-NEW-POST") {
+          let newPost = {
+              name: "Diana",
+              img: "https://themified.com/friend-finder/images/users/user-11.jpg",
+              text: this._state.content.postPage.newValue
+          };
+          this._state.content.postPage.oldMessages.push(newPost);
+          this._state.content.postPage.newValue = "";
+          this._callSubscriber(this._state);
+      } else if (action.type === "ADD-NEW-VALUE-TO-POST-TEXTAREA") {
+          this._state.content.postPage.newValue = action.value;
+          this._callSubscriber(this._state);
+      }
     }
 
 };

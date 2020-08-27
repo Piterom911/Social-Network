@@ -7,12 +7,12 @@ const New = (props) => {
 
     const newValue = () => {
         let text = newPost.current.value;
-        props.changeValue(text)
+        props.dispatch({ type: "ADD-NEW-VALUE-TO-POST-TEXTAREA", value: text })
     };
 
     const addNewPost = (e) => {
         e.preventDefault();
-        props.addNewPost();
+        props.dispatch({type: "ADD-NEW-POST"});
     };
 
     return (

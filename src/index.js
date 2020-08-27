@@ -5,13 +5,12 @@ import React from "react";
 import App from "./App";
 import store from "./redux/state";
 
+
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App state={state}
-                     changeValue={store.changeValue.bind(store)}
-                     addNewPost={store.addNewPost.bind(store)}/>
+                <App state={state} dispatch={store.dispatch.bind(store)} />
             </React.StrictMode>
         </BrowserRouter>, document.getElementById('root')
     );

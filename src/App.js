@@ -17,9 +17,7 @@ function App(props) {
 
                     <Sidebar chat={props.state.sidebar}/>
 
-                    <Content data={props.state.content}
-                             changeValue={props.changeValue}
-                             addNewPost={props.addNewPost}/>
+                    <Content data={props.state.content} dispatch={props.dispatch} />
 
                     <Follow/>
 

@@ -14,9 +14,7 @@ const Content = (props) => {
         <div className={s.content}>
             <Top/>
             <Route path="/messages" render={ () => <Messages messages={props.data.messagesPage}/> } />
-            <Route path="/posts" render={ () => <Posts posts={props.data.postPage}
-                                                       changeValue={props.changeValue}
-                                                       addNewPost={props.addNewPost}/> }/>
+            <Route path="/posts" render={ () => <Posts posts={props.data.postPage} dispatch={props.dispatch} /> }/>
             <Route path="/nearby" component={Nearby}/>
             <Route path="/friends" component={Friends}/>
             <Route path="/images" component={Images}/>
