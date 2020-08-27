@@ -2,16 +2,25 @@ import React from "react";
 import s from "./New.module.scss";
 
 const New = (props) => {
+
     const newPost = React.createRef();
-    const addNewPost = () => {
-        alert(`The text of the new Post is — "${newPost.current.value}".`)
+
+    const newValue = () => {
+        let text = newPost.current.value;
+        props.changeValue(text)
     };
+
+    const addNewPost = (e) => {
+        e.preventDefault();
+        props.addNewPost();
+    };
+
     return (
-        <form className={s.form}>
+        <div className={s.form}>
             <img src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="" className={s.ava}/>
-            <input ref={newPost} className={s.input} type="text" placeholder="Post a comment..."/>
-            <button onClick={addNewPost} className={s.submit}></button>
-        </form>
+            <textarea onChange={newValue} ref={newPost} className={s.input} type="text" value={props.newValue} placeholder="Post a comment..."/>
+            <button onClick={addNewPost} className={s.submit}>Send</button>
+        </div>
     )
 };
 export default New;

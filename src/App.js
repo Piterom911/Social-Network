@@ -7,11 +7,9 @@ import Follow from "./components/Follow/Follow";
 import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 
-
 function App(props) {
 
     return (
-        <BrowserRouter>
             <div className="app-wrapper">
 
                 <Header/>
@@ -20,7 +18,9 @@ function App(props) {
 
                     <Sidebar chat={props.state.sidebar}/>
 
-                    <Content data={props.state.content}/>
+                    <Content data={props.state.content}
+                             changeValue={props.changeValue}
+                             addNewPost={props.addNewPost}/>
 
                     <Follow/>
 
@@ -28,7 +28,6 @@ function App(props) {
 
                 <Footer/>
             </div>
-        </BrowserRouter>
     );
 }
 

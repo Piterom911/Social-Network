@@ -1,3 +1,6 @@
+
+let rerenderEntireTree;
+
 let state = {
     content: {
         messagesPage: {
@@ -76,18 +79,21 @@ let state = {
                 }
             ]
         },
-        postPage: [
-            {
-                name: "Diana",
-                img: "https://themified.com/friend-finder/images/users/user-11.jpg",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
-            },
-            {
-                name: "John",
-                img: "https://themified.com/friend-finder/images/users/user-4.jpg",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
-            }
-        ],
+        postPage: {
+            oldMessages: [
+                {
+                    name: "Diana",
+                    img: "https://themified.com/friend-finder/images/users/user-11.jpg",
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+                },
+                {
+                    name: "John",
+                    img: "https://themified.com/friend-finder/images/users/user-4.jpg",
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+                }
+            ],
+            newValue: ""
+        }
     },
     sidebar: {
         chat: [
@@ -102,8 +108,26 @@ let state = {
             { ava: "https://themified.com/friend-finder/images/users/user-10.jpg" }
         ]
     }
+};
 
+export const addNewPost = () => {
+    let newPost = {
+        name: "Diana",
+        img: "https://themified.com/friend-finder/images/users/user-11.jpg",
+        text: state.content.postPage.newValue
+    };
+    state.content.postPage.oldMessages.push(newPost);
+    state.content.postPage.newValue = "";
+    rerenderEntireTree(state);
+};
 
+export const changeValue = (value) => {
+    state.content.postPage.newValue = value;
+    rerenderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 };
 
 export default state;
