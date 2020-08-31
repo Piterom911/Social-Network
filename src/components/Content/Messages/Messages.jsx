@@ -7,7 +7,7 @@ const Messages = (props) => {
     return (
         <div className={s.messages}>
             <ContactList contacts={props.messages.contacts}/>
-            <Dialog messages={props.messages.messages}/>
+            <Dialog dispatch={props.dispatch} messages={props.messages}/>
         </div>
     )
 };

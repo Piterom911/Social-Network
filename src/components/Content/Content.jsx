@@ -13,8 +13,9 @@ const Content = (props) => {
     return (
         <div className={s.content}>
             <Top/>
-            <Route path="/messages" render={ () => <Messages messages={props.data.messagesPage}/> } />
+            <Route path="/messages" render={ () => <Messages messages={props.data.messagesPage} dispatch={props.dispatch}/> } />
             <Route path="/posts" render={ () => <Posts posts={props.data.postPage} dispatch={props.dispatch} /> }/>
+            <Route exact path="/" render={ () => <Posts posts={props.data.postPage} dispatch={props.dispatch} /> }/>
             <Route path="/nearby" component={Nearby}/>
             <Route path="/friends" component={Friends}/>
             <Route path="/images" component={Images}/>
