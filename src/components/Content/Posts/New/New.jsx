@@ -1,5 +1,7 @@
 import React from "react";
 import s from "./New.module.scss";
+import {addPostActionCreator, newValueActionCreator} from "../../../../redux/state";
+
 
 const New = (props) => {
 
@@ -7,13 +9,15 @@ const New = (props) => {
 
     const newValue = () => {
         let text = newPost.current.value;
-        props.dispatch({ type: "ADD-NEW-VALUE-TO-POST-TEXTAREA", value: text })
+        props.dispatch(newValueActionCreator(text))
     };
 
     const addNewPost = (e) => {
         e.preventDefault();
-        props.dispatch({type: "ADD-NEW-POST"});
+        props.dispatch(addPostActionCreator());
     };
+
+    debugger;
 
     return (
         <div className={s.form}>

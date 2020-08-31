@@ -13,7 +13,7 @@ const Posts = (props) => {
             <div className={s.data}>
                 <PostContent/>
                 { postMapData }
-                <New dispatch={props.dispatch} />
+                <New dispatch={props.dispatch} newValue={props.posts.newValue}/>
             </div>
         </div>
     )

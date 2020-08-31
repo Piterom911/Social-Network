@@ -1,3 +1,6 @@
+const ADD_NEW_POST = "ADD-NEW-POST";
+const ADD_NEW_VALUE_TO_POST_TEXTAREA = "ADD-NEW-VALUE-TO-POST-TEXTAREA";
+
 let store = {
 
     _state: {
@@ -108,29 +111,15 @@ let store = {
             ]
         }
     },
+
     _callSubscriber() {},
 
     getState() {
         return this._state;
     },
+
     subscribe(observer) {
         this._callSubscriber = observer;
-    },
-
-    addNewPost() {
-        let newPost = {
-            name: "Diana",
-            img: "https://themified.com/friend-finder/images/users/user-11.jpg",
-            text: this._state.content.postPage.newValue
-        };
-        this._state.content.postPage.oldMessages.push(newPost);
-        this._state.content.postPage.newValue = "";
-        this._callSubscriber(this._state);
-    },
-
-    changeValue(value) {
-        this._state.content.postPage.newValue = value;
-        this._callSubscriber(this._state);
     },
 
     dispatch(action) {
@@ -149,6 +138,14 @@ let store = {
       }
     }
 
+};
+
+export const addPostActionCreator = () => ({ type: ADD_NEW_POST });
+export const newValueActionCreator = (text) => {
+    return {
+        type: ADD_NEW_VALUE_TO_POST_TEXTAREA,
+        value: text
+    }
 };
 
 export default store;
