@@ -1,7 +1,5 @@
-const ADD_NEW_POST = "ADD-NEW-POST";
-const ADD_NEW_VALUE_TO_POST_TEXTAREA = "ADD-NEW-VALUE-TO-POST-TEXTAREA";
-const ADD_NEW_MESSAGE_BODY = "ADD-NEW-MESSAGE-BODY";
-const SEND_MESSAGE = "SEND-MESSAGE";
+import postReducer from "./postReducer";
+import messageReducer from "./messageReducer";
 
 let store = {
 
@@ -126,51 +124,16 @@ let store = {
     },
 
     dispatch(action) {
-      if (action.type === "ADD-NEW-POST") {
-          let newPost = {
-              name: "Diana",
-              img: "https://themified.com/friend-finder/images/users/user-11.jpg",
-              text: this._state.content.postPage.newValue
-          };
-          this._state.content.postPage.oldMessages.push(newPost);
-          this._state.content.postPage.newValue = "";
-          this._callSubscriber(this._state);
-      } else if (action.type === "ADD-NEW-VALUE-TO-POST-TEXTAREA") {
-          this._state.content.postPage.newValue = action.value;
-          this._callSubscriber(this._state);
-      } else if (action.type === ADD_NEW_MESSAGE_BODY) {
-          this._state.content.messagesPage.newMessageBody = action.body;
-          this._callSubscriber(this._state);
-      } else if (action.type === SEND_MESSAGE) {
-          let body = this._state.content.messagesPage.newMessageBody;
-          this._state.content.messagesPage.newMessageBody = "";
-          this._state.content.messagesPage.messages.push({
-              ava: "https://themified.com/friend-finder/images/users/user-2.jpg",
-              me: "notMe",
-              name: "Linda Lohan",
-              time: "3 days ago",
-              message: body
-          });
-          this._callSubscriber(this._state);
-      }
+        this._state.content.postPage = postReducer(this._state.content.postPage, action);
+        this._state.content.messagesPage = messageReducer(this._state.content.messagesPage, action);
+
+        this._callSubscriber(this._state);
     }
 
 };
 
-export const addPostActionCreator = () => ({ type: ADD_NEW_POST });
-export const newValueActionCreator = (text) => {
-    return {
-        type: ADD_NEW_VALUE_TO_POST_TEXTAREA,
-        value: text
-    }
-};
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
-export const updateNewMessageBodyCreator = (text) => {
-    return {
-        type: ADD_NEW_MESSAGE_BODY,
-        body: text
-    }
-};
 
 export default store;
+
+window.store = store;

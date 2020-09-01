@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./New.module.scss";
-import {addPostActionCreator, newValueActionCreator} from "../../../../redux/state";
+import {addPostActionCreator, newValueActionCreator} from "../../../../redux/postReducer";
 
 
 const New = (props) => {
