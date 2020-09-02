@@ -17,7 +17,6 @@ const New = (props) => {
         props.dispatch(addPostActionCreator());
     };
 
-    debugger;
 
     return (
         <div className={s.form}>

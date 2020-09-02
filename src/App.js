@@ -7,7 +7,6 @@ import Follow from "./components/Follow/Follow";
 import Footer from "./components/Footer/Footer";
 
 function App(props) {
-
     return (
             <div className="app-wrapper">
 
@@ -17,7 +16,7 @@ function App(props) {
 
                     <Sidebar chat={props.state.sidebar}/>
 
-                    <Content data={props.state.content} dispatch={props.dispatch} />
+                    <Content data={props.state} dispatch={props.dispatch} />
 
                     <Follow/>
 
