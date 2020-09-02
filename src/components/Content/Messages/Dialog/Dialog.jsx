@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Dialog.module.scss";
 import Message from "./Message/Message";
-import SendMessage from "./SendMessage/SendMessage";
+import SendMessageContainer from "./SendMessage/SendMessageContainer";
 
 const Dialog = (props) => {
 
@@ -11,7 +11,7 @@ const Dialog = (props) => {
             <div className={s.dialog}>
                 { message }
             </div>
-            <SendMessage dispatch={props.dispatch} messages={props.messages}/>
+            <SendMessageContainer dispatch={props.dispatch} messages={props.messages}/>
         </div>
     )
 };

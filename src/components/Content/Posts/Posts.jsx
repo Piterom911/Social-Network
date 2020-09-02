@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./Posts.module.scss";
 import Answer from "./Answers/Answer";
-import New from "./New/New";
 import PostContent from "./PostContent/PostContent";
+import NewContainer from "./New/NewContainer";
 
 const Posts = (props) => {
 
@@ -13,7 +13,7 @@ const Posts = (props) => {
             <div className={s.data}>
                 <PostContent/>
                 { postMapData }
-                <New dispatch={props.dispatch} newValue={props.posts.newValue}/>
+                <NewContainer dispatch={props.dispatch} newValue={props.posts.newValue}/>
             </div>
         </div>
     )

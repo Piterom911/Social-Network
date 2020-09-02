@@ -1,19 +1,18 @@
 import React from "react";
 import s from "./SendMessage.module.scss"
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../../../../redux/messageReducer";
 
 const SendMessage = (props) => {
     const sendNewMessage = (e) => {
         e.preventDefault();
-        props.dispatch(sendMessageCreator());
+        props.sendNewMessage();
     };
     const onNewMessageChange = (e) => {
         let value = e.target.value;
-        props.dispatch(updateNewMessageBodyCreator(value));
+        props.newMessageChange(value);
     };
     return (
         <form action="" className={s.form}>
-            <textarea value={props.messages.newMessageBody} onChange={onNewMessageChange} className={s.text} placeholder="Type your message"></textarea>
+            <textarea value={props.messages} onChange={onNewMessageChange} className={s.text} placeholder="Type your message"></textarea>
             <button onClick={sendNewMessage} className={s.btn} type="submit">Send</button>
         </form>
     )
