@@ -14,9 +14,9 @@ function App(props) {
 
                 <div className="container main-content">
 
-                    <Sidebar chat={props.state.sidebar}/>
+                    <Sidebar/>
 
-                    <Content data={props.state} dispatch={props.dispatch} />
+                    <Content/>
 
                     <Follow/>
 

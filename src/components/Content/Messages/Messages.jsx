@@ -1,13 +1,13 @@
 import React from "react";
 import s from "./Messages.module.scss";
-import ContactList from "./ContactList/ContactList";
-import Dialog from "./Dialog/Dialog";
+import DialogContainer from "./Dialog/DialogContainer";
+import ContactListContainer from "./ContactList/ContactListContainer";
 
-const Messages = (props) => {
+const Messages = () => {
     return (
         <div className={s.messages}>
-            <ContactList contacts={props.messages.contacts}/>
-            <Dialog dispatch={props.dispatch} messages={props.messages}/>
+            <ContactListContainer />
+            <DialogContainer />
         </div>
     )
 };

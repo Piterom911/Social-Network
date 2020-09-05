@@ -1,16 +1,28 @@
 import React from "react";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../../../../redux/messageReducer";
 import SendMessage from "./SendMessage";
+import {connect} from "react-redux";
 
-const SendMessageContainer = (props) => {
+
+const mapStateToProps = (state) => {
+    return {
+        messages: state.messagesPage.messages.newMessageBody
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
     const sendNewMessage = () => {
-        props.dispatch(sendMessageCreator());
+        dispatch(sendMessageCreator());
     };
     const newMessageChange = (newValue) => {
-        props.dispatch(updateNewMessageBodyCreator(newValue));
+        dispatch(updateNewMessageBodyCreator(newValue));
     };
-
-    return (<SendMessage newMessageChange={newMessageChange} messages={props.messages.newMessageBody} sendNewMessage={sendNewMessage}/>)
+    return {
+        newMessageChange: newMessageChange,
+        sendNewMessage: sendNewMessage
+    }
 };
+
+const SendMessageContainer = connect(mapStateToProps, mapDispatchToProps)(SendMessage);
 
 export default SendMessageContainer;

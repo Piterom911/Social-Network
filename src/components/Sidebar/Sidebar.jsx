@@ -14,13 +14,14 @@ import Profile from "./Profile/Profile";
 import {NavLink} from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
 import ChatOnline from "./ChatOnline/ChatOnline";
+import ChatOnlineContainer from "./ChatOnline/ChatOnlineContainer";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
     return (
         <aside className={s.sidebar}>
             < Profile/>
             <Navigation/>
-            <ChatOnline chat={props.chat.chat}/>
+            <ChatOnlineContainer/>
         </aside>
     )
 };

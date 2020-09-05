@@ -1,22 +1,28 @@
 import React from "react";
 import {addPostActionCreator, newValueActionCreator} from "../../../../redux/postReducer";
 import New from "./New";
+import {connect} from "react-redux";
 
+const mapStateToProps = (state) => {
+    return {
+        newValue: state.postPage.newValue
+    }
+};
 
-const NewContainer = (props) => {
-
-
+const mapDispatchToProps = (dispatch) => {
     const newValue = (text) => {
-        props.dispatch(newValueActionCreator(text))
+        dispatch(newValueActionCreator(text))
     };
 
     const addNewPost = () => {
-        props.dispatch(addPostActionCreator());
+        dispatch(addPostActionCreator());
     };
-
-
-    return <New addNewPost={addNewPost} newValue={props.newValue} changeValue={newValue}/>
-
+    return {
+        changeValue: newValue,
+        addNewPost: addNewPost
+    }
 };
+
+const NewContainer = connect(mapStateToProps, mapDispatchToProps)(New);
 
 export default NewContainer;
