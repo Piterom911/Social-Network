@@ -81,21 +81,28 @@ let initialState = {
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
-            return state;
+        case SEND_MESSAGE:{
+            let stateCopy = {...state};
 
-        case SEND_MESSAGE:
-            let body = state.newMessageBody;
-            state.newMessageBody = "";
-            state.messages.push({
+            let newMessage = {
                 ava: "https://themified.com/friend-finder/images/users/user-2.jpg",
                 me: "notMe",
                 name: "Linda Lohan",
                 time: "3 days ago",
-                message: body
-            });
-            return state;
+                message: stateCopy.newMessageBody
+            };
+
+            stateCopy.newMessageBody = {...state.newMessageBody};
+            stateCopy.messages = [...state.messages];
+            stateCopy.messages.push(newMessage);
+            stateCopy.newMessageBody = "";
+            return stateCopy;}
+
+        case ADD_NEW_MESSAGE_BODY:{
+            let stateCopy = {...state};
+
+            stateCopy.newMessageBody = action.body;
+            return stateCopy;}
 
         default:
             return state;

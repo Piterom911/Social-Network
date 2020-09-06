@@ -12,7 +12,7 @@ const SendMessage = (props) => {
     };
     return (
         <form action="" className={s.form}>
-            <textarea value={props.messages} onChange={onNewMessageChange} className={s.text} placeholder="Type your message"></textarea>
+            <textarea value={props.newMessageBody} onChange={onNewMessageChange} className={s.text} placeholder="Type your message"></textarea>
             <button onClick={sendNewMessage} className={s.btn} type="submit">Send</button>
         </form>
     )
