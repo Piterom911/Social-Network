@@ -19,21 +19,19 @@ let initialState = {
 
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_NEW_POST:{
-            let stateCopy = {...state};
+        case ADD_NEW_POST:
             let newPost = {
                 name: "Diana",
                 img: "https://themified.com/friend-finder/images/users/user-11.jpg",
-                text: stateCopy.newValue
+                text: state.newValue
             };
-            stateCopy.oldMessages = [...state.oldMessages];
-            stateCopy.oldMessages.push(newPost);
-            stateCopy.newValue = "";
-            return stateCopy;}
-        case ADD_NEW_VALUE_TO_POST_TEXTAREA:{
-            let stateCopy = {...state};
-            stateCopy.newValue = action.value;
-            return stateCopy;}
+            return {...state,
+                oldMessages: [...state.oldMessages, newPost],
+                newValue: ""
+            };
+        case ADD_NEW_VALUE_TO_POST_TEXTAREA:
+            return {...state,
+                newValue: action.value};
         default:
             return state;
     }

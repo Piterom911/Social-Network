@@ -1,4 +1,3 @@
-import React from "react";
 import {addPostActionCreator, newValueActionCreator} from "../../../../redux/postReducer";
 import New from "./New";
 import {connect} from "react-redux";

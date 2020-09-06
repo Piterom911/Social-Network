@@ -48,6 +48,7 @@ let initialState = {
     ],
         messages: [
         {
+            id: 1,
             ava: "https://themified.com/friend-finder/images/users/user-2.jpg",
             me: "notMe",
             name: "Linda Lohan",
@@ -55,6 +56,7 @@ let initialState = {
             message: "Hello my little friend!"
         },
         {
+            id: 2,
             ava: "https://themified.com/friend-finder/images/users/user-1.jpg",
             me: "me",
             name: "Sarah Cruiz",
@@ -62,6 +64,7 @@ let initialState = {
             message: "I really want you to know about..."
         },
         {
+            id: 3,
             ava: "https://themified.com/friend-finder/images/users/user-2.jpg",
             me: "notMe",
             name: "Linda Lohan",
@@ -69,6 +72,7 @@ let initialState = {
             message: "You are scaring me! Please say what you want to say!"
         },
         {
+            id: 4,
             ava: "https://themified.com/friend-finder/images/users/user-1.jpg",
             me: "me",
             name: "Sarah Cruiz",
@@ -76,33 +80,30 @@ let initialState = {
             message: "Oh... Do not be afraid. It is no matter any more. You will know soon)"
         }
     ],
-        newMessageBody: ""
+        newMessageBody: "Hello"
 };
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SEND_MESSAGE:{
-            let stateCopy = {...state};
-
+        case SEND_MESSAGE:
             let newMessage = {
+                id: 1,
                 ava: "https://themified.com/friend-finder/images/users/user-2.jpg",
                 me: "notMe",
                 name: "Linda Lohan",
                 time: "3 days ago",
-                message: stateCopy.newMessageBody
+                message: state.newMessageBody
             };
 
-            stateCopy.newMessageBody = {...state.newMessageBody};
-            stateCopy.messages = [...state.messages];
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageBody = "";
-            return stateCopy;}
-
-        case ADD_NEW_MESSAGE_BODY:{
-            let stateCopy = {...state};
-
-            stateCopy.newMessageBody = action.body;
-            return stateCopy;}
+            return {...state,
+                messages: [...state.messages, newMessage],
+                newMessageBody: ""
+            };
+        case ADD_NEW_MESSAGE_BODY:
+            return {
+                ...state,
+                newMessageBody: action.body
+            };
 
         default:
             return state;
