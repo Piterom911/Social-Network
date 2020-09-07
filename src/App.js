@@ -6,7 +6,7 @@ import Content from "./components/Content/Content";
 import Follow from "./components/Follow/Follow";
 import Footer from "./components/Footer/Footer";
 
-function App(props) {
+function App() {
     return (
             <div className="app-wrapper">
 

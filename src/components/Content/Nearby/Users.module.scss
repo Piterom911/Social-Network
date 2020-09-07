@@ -1,0 +1,79 @@
+@import "../../../custom";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  .avatar {
+    width: 100%;
+    height: 110px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    position: relative;
+    margin-bottom: 40px;
+
+    .ava {
+      position: absolute;
+      border: 7px solid #fff;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      bottom: -30px;
+      left: 20px;
+      box-sizing: border-box;
+    }
+  }
+
+  .nameBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    .name {
+      margin: 0;
+      a {
+        font-size: 14px;
+        font-weight: 600;
+        color: $txtBlue;
+
+        &:hover {
+          color: $txtBlueHover;
+        }
+      }
+    }
+
+    button {
+      margin-left: 20px;
+      color: $txtBlue;
+      box-sizing: border-box;
+      border-radius: 15px;
+      border: none;
+      background: none;
+      font-size: 14px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+
+      &.follow {
+        color: $txtGreen;
+      }
+    }
+  }
+
+  .location {
+    font-size: 12px;
+    color: $txtLightGrey;
+    margin-top: 5px;
+    padding: 0 20px;
+  }
+
+  .status {
+    padding: 0 20px;
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: $txtGrey;
+  }
+}
+
