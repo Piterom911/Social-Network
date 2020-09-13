@@ -1,57 +1,19 @@
 import React from "react";
 import s from "./Users.module.scss";
+import * as axios from "axios";
+import userIcon from "../../../assets/images/userIcon.jpg"
 
 const Users = (props) => {
     if(props.users.length === 0) {
-        props.setUsers(
-            [
-                    {
-                        id: 1,
-                        photoUrl: "https://mtv.mtvnimages.com/uri/mgid:ao:image:mtv.com:28871?quality=0.8&format=jpg&width=1440&height=810&.jpg",
-                        bgUrl: "https://innova-it.co.il/wp-content/uploads/2018/12/bg.jpg",
-                        userName: "Bebe Rexha",
-                        status: "I sing like a little girl",
-                        followed: false,
-                        location: {
-                            cityId: 1,
-                            cityName: "New York",
-                            country: "USA"
-                        }
-                    },
-                    {
-                        id: 2,
-                        photoUrl: "https://upload.wikimedia.org/wikipedia/commons/8/87/RyanTedderphotocall.jpg",
-                        bgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRK99hb-fuTgg0bVgmIrj9MYALvtGc0LAvRAA&usqp=CAU",
-                        userName: "Ryan Benjamin Tedder",
-                        status: "I am a good writer and singer!",
-                        followed: true,
-                        location: {
-                            cityId: 1,
-                            cityName: "Vancouver",
-                            country: "Canada"
-                        }
-                    },
-                    {
-                        id: 3,
-                        photoUrl: "https://pmcvariety.files.wordpress.com/2020/01/taylor-swift-variety-cover-5-16x9-1000.jpg?w=1000",
-                        bgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYkaU2VWtcR6Grf38IY8lMwngseiFygyblDg&usqp=CAU",
-                        userName: "Taylor Swift",
-                        status: "I love you my followers!",
-                        followed: false,
-                        location: {
-                            cityId: 1,
-                            cityName: "California",
-                            country: "USA"
-                        }
-                    }
-                ]
-        )
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?count=100&page=10").then( response => {
+            props.setUsers(response.data.items)
+        })
     }
     return <div className={s.wrapper}>
         {
-            props.users.map(u => <div key={u.id}>
-                <div style={{background: "url(" + u.bgUrl + ") no-repeat center / cover"}} className={s.avatar}>
-                    <div className={s.ava} style={{background: "url(" + u.photoUrl + ") no-repeat center / cover"}} alt={u.userName}/>
+            props.users.map(u => <div key={u.id} data-id={u.id}>
+                <div style={{background: "#eee url(" + u.photos.large + ") no-repeat center / cover"}} className={s.avatar}>
+                    <div className={s.ava} style={{background: "url(" + (u.photos.small !== null ? u.photos.small : userIcon) + ") no-repeat center / cover"}} alt={u.name}/>
                 </div>
                 <div className={s.nameBox}>
                     <h5 className={s.name}><a href="https//helomalo">{u.userName}</a></h5>
@@ -64,8 +26,8 @@ const Users = (props) => {
                         } }>Follow</button>}
                 </div>
                 <div className={s.location}>
-                    <span className={s.city}>{u.location.cityName} / </span>
-                    <span className={s.country}>{u.location.country}</span>
+                    <span className={s.city}>{"u.location.cityName"} / </span>
+                    <span className={s.country}>{"u.location.country"}</span>
                 </div>
                 <p className={s.status}>{u.status}</p>
             </div>)
