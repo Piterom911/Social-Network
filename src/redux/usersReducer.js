@@ -1,9 +1,11 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const CHANGE_PAGE = "CHANGE_PAGE";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 
 let initialState = {
-     users: [
+    users: [
     //     {
     //         id: 1,
     //         photoUrl: "https://mtv.mtvnimages.com/uri/mgid:ao:image:mtv.com:28871?quality=0.8&format=jpg&width=1440&height=810&.jpg",
@@ -43,7 +45,10 @@ let initialState = {
     //             country: "USA"
     //         }
     //     }
-    ]
+    ],
+    totalUsersCount: 0,
+    pageSize: 100,
+    currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -69,7 +74,11 @@ const usersReducer = (state = initialState, action) => {
                 })
             };
         case SET_USERS:
-            return { ...state, users: [...state.users, ...action.users]};
+            return { ...state, users: [...action.users]};
+        case CHANGE_PAGE:
+            return { ...state, currentPage: action.pageCount};
+        case SET_TOTAL_USERS_COUNT:
+            return { ...state, totalUsersCount: action.totalUsersCount};
         default: return state
     }
 };
@@ -77,5 +86,7 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userID) => ( {type: FOLLOW, userID} );
 export const unfollowAC = (userID) => ( {type: UNFOLLOW, userID} );
 export const setUsersAC = (users) => ( {type: SET_USERS, users} );
+export const setCurrentPageAC = (pageCount) => ( {type: CHANGE_PAGE, pageCount} );
+export const setTotalUsersCountAC = (totalUsersCount) => ( {type: SET_TOTAL_USERS_COUNT, totalUsersCount} );
 
 export default usersReducer;
