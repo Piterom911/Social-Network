@@ -3,24 +3,10 @@ import s from "./Users.module.scss";
 import * as axios from "axios";
 import userIcon from "../../../assets/images/userIcon.jpg"
 
-class Users extends React.Component {
+let Users = (props) => {
+    console.log(props)
 
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=1&count=${this.props.pageSize}`).then( response => {
-            this.props.setUsers(response.data.items)
-            this.props.setTotalUsersCount(response.data.totalCount)
-        })
-    }
-
-    onSetCurrentPage = (page) => {
-        this.props.setCurrentPage(page);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`).then( response => {
-            this.props.setUsers(response.data.items)
-        })
-    }
-
-    render() {
-        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
@@ -29,14 +15,14 @@ class Users extends React.Component {
         return <div>
             <div className={s.pagination}>
                 { pages.map( p => {
-                    if ((p - this.props.currentPage < 3 && p > this.props.currentPage - 3) || p >= pagesCount || p === 1 ) {
-                        return <span onClick={ () => this.onSetCurrentPage(p)} className={this.props.currentPage === p && s.currentPage}> {p} </span>
+                    if ((p - props.currentPage < 3 && p > props.currentPage - 3) || p >= pagesCount || p === 1 ) {
+                        return <span onClick={ () => props.onSetCurrentPage(p)} className={props.currentPage === p ? s.currentPage : s.otherPage}> {p} </span>
                     }
                 })}
             </div>
             <div className={s.wrapper}>
                 {
-                    this.props.users.map(u => <div key={u.id} data-id={u.id} className={s.item}>
+                    props.users.map(u => <div key={u.id} data-id={u.id} className={s.item}>
                         <div style={{background: "#eee url(" + u.photos.large + ") no-repeat center / cover"}} className={s.avatar}>
                             <div className={s.ava} style={{background: "url(" + (u.photos.small !== null ? u.photos.small : userIcon) + ") no-repeat center / cover"}} alt={u.name}/>
                         </div>
@@ -44,22 +30,21 @@ class Users extends React.Component {
                             <h5 className={s.name}><a href="https//helomalo">{u.userName}</a></h5>
                             {u.followed
                                 ? <button className={s.unfollow} onClick={ () => {
-                                    this.props.unfollow(u.id)
+                                    props.unfollow(u.id)
                                 } }>Unfollow</button>
                                 : <button className={s.follow} onClick={ () => {
-                                    this.props.follow(u.id)
+                                    props.follow(u.id)
                                 } }>Follow</button>}
                         </div>
                         <div className={s.location}>
-                            <span className={s.city}>{"u.location.cityName"} / </span>
-                            <span className={s.country}>{"u.location.country"}</span>
+                            <span className={s.city}>{"Vancouver"} / </span>
+                            <span className={s.country}>{"Canada"}</span>
                         </div>
                         <p className={s.status}>{u.status}</p>
                     </div>)
                 }
             </div>
         </div>
-    }
 }
 
 export default Users;
