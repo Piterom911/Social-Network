@@ -1,10 +1,9 @@
 import React from "react";
 import s from "./Users.module.scss";
-import * as axios from "axios";
 import userIcon from "../../../assets/images/userIcon.jpg"
+import Preloader from "../../commonComponents/Preloader/Preloader";
 
 let Users = (props) => {
-    console.log(props)
 
         let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
@@ -12,14 +11,15 @@ let Users = (props) => {
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i)
         }
-        return <div>
+        return <div className={s.users}>
             <div className={s.pagination}>
                 { pages.map( p => {
                     if ((p - props.currentPage < 3 && p > props.currentPage - 3) || p >= pagesCount || p === 1 ) {
-                        return <span onClick={ () => props.onSetCurrentPage(p)} className={props.currentPage === p ? s.currentPage : s.otherPage}> {p} </span>
+                        return <span key={p} onClick={ () => props.onSetCurrentPage(p)} className={props.currentPage === p ? s.currentPage : s.otherPage}> {p} </span>
                     }
                 })}
             </div>
+            {props.isFetching && <Preloader/>}
             <div className={s.wrapper}>
                 {
                     props.users.map(u => <div key={u.id} data-id={u.id} className={s.item}>
@@ -27,7 +27,7 @@ let Users = (props) => {
                             <div className={s.ava} style={{background: "url(" + (u.photos.small !== null ? u.photos.small : userIcon) + ") no-repeat center / cover"}} alt={u.name}/>
                         </div>
                         <div className={s.nameBox}>
-                            <h5 className={s.name}><a href="https//helomalo">{u.userName}</a></h5>
+                            <h5 className={s.name}><a href="https//helomalo">{u.name}</a></h5>
                             {u.followed
                                 ? <button className={s.unfollow} onClick={ () => {
                                     props.unfollow(u.id)
