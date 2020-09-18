@@ -1,0 +1,126 @@
+@import "../../../custom";
+
+.top  {
+  border-radius: 0 0 4px 4px;
+  min-height: 360px;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 280px;
+
+  .infoLine {
+    background: rgba(0,0,0, .7);
+    width: 100%;
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+
+    .navigation {
+      margin-left: 25%;
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      li {
+        padding: 20px 15px;
+
+        a {
+          font-size: 13px;
+          color: white;
+
+          &:hover {
+            color: $txtBlue;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .followers {
+      color: white;
+
+      .add {
+        @include btnPrimary;
+        line-height: 40px;
+        box-sizing: border-box;
+        padding: 0 25px;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .avaBox {
+    position: absolute;
+    text-align: center;
+    padding: 0 20px;
+    top: -100px;
+    z-index: 999;
+    max-width: 200px;
+    overflow-x: hidden;
+
+    .ava {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      border: 10px solid #fff;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: $txtBlue;
+      margin: 20px 0 10px;
+    }
+
+    .position {
+      color: #939598;
+    }
+  }
+}
+
+.bottom {
+  margin-left: 25%;
+  padding: 30px 0 50px;
+
+  .common {
+    margin-top: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+
+    .title {
+      color: #6d6e71;
+      margin: 0 auto 20px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .icon {
+      color: $txtBlue;
+      opacity: .5;
+      margin-right: 10px;
+      font-size: 17px;
+    }
+
+    .status {
+      color: $txtGrey;
+      font-size: 13px;
+    }
+
+    .socials {
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      color: $txtLightGrey;
+
+      li {
+        margin: 0;
+
+        a {
+          font-size: 14px;
+          color: $txtBlue;
+        }
+      }
+    }
+  }
+}
