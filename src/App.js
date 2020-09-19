@@ -15,7 +15,7 @@ function App() {
             <Header/>
 
             <Switch>
-                <Route path="/profile" render={() => <div className="container"><ProfileContainer/></div>}/>
+                <Route path="/profile/:userId?" render={() => <div className="container"><ProfileContainer/></div>}/>
                 <Route path="/" render={() => <div className="container main-content">  <Sidebar/>    <Content/>  <Follow/> </div>}/>
             </Switch>
 

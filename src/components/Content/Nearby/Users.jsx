@@ -28,7 +28,7 @@ let Users = (props) => {
                             <div className={s.ava} style={{background: "url(" + (u.photos.small !== null ? u.photos.small : userIcon) + ") no-repeat center / cover"}} alt={u.name}/>
                         </div>
                         <div className={s.nameBox}>
-                            <h5 className={s.name}><NavLink to="/profile">{u.name}</NavLink></h5>
+                            <h5 className={s.name}><NavLink to={"/profile/" + u.id}>{u.name}</NavLink></h5>
                             {u.followed
                                 ? <button className={s.unfollow} onClick={ () => {
                                     props.unfollow(u.id)
