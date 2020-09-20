@@ -18,6 +18,7 @@ let Users = (props) => {
                     if ((p - props.currentPage < 3 && p > props.currentPage - 3) || p >= pagesCount || p === 1 ) {
                         return <span key={p} onClick={ () => props.onSetCurrentPage(p)} className={props.currentPage === p ? s.currentPage : s.otherPage}> {p} </span>
                     }
+                    return "";
                 })}
             </div>
             {props.isFetching && <Preloader/>}

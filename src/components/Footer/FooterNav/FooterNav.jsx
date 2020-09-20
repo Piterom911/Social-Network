@@ -8,22 +8,22 @@ const FooterNav = () => {
                 <h5 className={s.title}>For individuals</h5>
                 <ul className={s.list}>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Signup</a>
+                        <a href="#sdfg" className={s.link}>Signup</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>login</a>
+                        <a href="#fg" className={s.link}>login</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Explore</a>
+                        <a href="#s" className={s.link}>Explore</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Finder app</a>
+                        <a href="#sdfg" className={s.link}>Finder app</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Features</a>
+                        <a href="#sdfgs" className={s.link}>Features</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Language settings</a>
+                        <a href="#sdfg" className={s.link}>Language settings</a>
                     </li>
                 </ul>
             </div>
@@ -31,22 +31,22 @@ const FooterNav = () => {
                 <h5 className={s.title}>For businesses</h5>
                 <ul className={s.list}>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Business signup</a>
+                        <a href="#sdfg" className={s.link}>Business signup</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Business login</a>
+                        <a href="#sdfg" className={s.link}>Business login</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Benefits</a>
+                        <a href="#sdfg" className={s.link}>Benefits</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Resources</a>
+                        <a href="#sdfg" className={s.link}>Resources</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Advertise</a>
+                        <a href="#sdfg" className={s.link}>Advertise</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Setup</a>
+                        <a href="#sdfg" className={s.link}>Setup</a>
                     </li>
                 </ul>
             </div>
@@ -54,19 +54,19 @@ const FooterNav = () => {
                 <h5 className={s.title}>About</h5>
                 <ul className={s.list}>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>About us</a>
+                        <a href="#sdfg" className={s.link}>About us</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Contact us</a>
+                        <a href="#sdfg" className={s.link}>Contact us</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Privacy Policy</a>
+                        <a href="#sdfg" className={s.link}>Privacy Policy</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Terms</a>
+                        <a href="#sdfg" className={s.link}>Terms</a>
                     </li>
                     <li className={s.item}>
-                        <a href="#" className={s.link}>Help</a>
+                        <a href="#sdfg" className={s.link}>Help</a>
                     </li>
                 </ul>
             </div>
