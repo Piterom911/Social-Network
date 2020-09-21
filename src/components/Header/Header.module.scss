@@ -18,6 +18,14 @@
       display: flex;
       align-items: center;
 
+      .wrapper {
+        position: relative;
+      }
+
+      .wrapperPreloader {
+        width: 30px;
+      }
+
       .search {
 
         .formGroup {
@@ -44,6 +52,28 @@
             font-weight: 300;
             box-sizing: border-box;
           }
+        }
+      }
+
+      .login {
+        color: #fff;
+        font-size: 13px;
+        margin-left: 20px;
+        font-weight: 700;
+
+        &:hover {
+          color: $txtBlue;
+        }
+      }
+
+      .logged {
+        color: #fff;
+        font-size: 13px;
+        margin-left: 20px;
+        font-weight: 700;
+
+        &:hover {
+          color: $txtBlue;
         }
       }
 

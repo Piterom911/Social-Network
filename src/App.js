@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.scss';
-import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Content from "./components/Content/Content";
 import Follow from "./components/Follow/Follow";
 import Footer from "./components/Footer/Footer";
 import {Route, Switch} from "react-router-dom";
 import ProfileContainer from "./components/Content/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App() {
     return (
         <div className="app-wrapper">
 
-            <Header/>
+            <HeaderContainer />
 
             <Switch>
                 <Route path="/profile/:userId?" render={() => <div className="container"><ProfileContainer/></div>}/>
