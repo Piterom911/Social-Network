@@ -79,6 +79,10 @@
           outline: none;
           cursor: pointer;
 
+          &[disabled="disabled"] {
+          color: #6d6e71;
+        }
+
           &.follow {
             color: $txtGreen;
           }

@@ -3,6 +3,8 @@ import s from "./Users.module.scss";
 import userIcon from "../../../assets/images/userIcon.jpg"
 import Preloader from "../../commonComponents/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
+import {followAPI} from "../../../API/api";
 
 let Users = (props) => {
 
@@ -31,11 +33,20 @@ let Users = (props) => {
                         <div className={s.nameBox}>
                             <h5 className={s.name}><NavLink to={"/profile/" + u.id}>{u.name}</NavLink></h5>
                             {u.followed
-                                ? <button className={s.unfollow} onClick={ () => {
-                                    props.unfollow(u.id)
+                                ? <button className={s.unfollow} onClick={ (event) => {
+                                    followAPI.unfollow(u.id).then( data => {
+                                        if( data.resultCode === 0 ) {
+                                            props.unfollow(u.id)
+                                        }
+                                    })
+
                                 } }>Unfollow</button>
-                                : <button className={s.follow} onClick={ () => {
-                                    props.follow(u.id)
+                                : <button className={s.follow} onClick={ (event) => {
+                                        followAPI.follow(u.id).then( data => {
+                                        if( data.resultCode === 0 ) {
+                                            props.follow(u.id)
+                                        }
+                                    })
                                 } }>Follow</button>}
                         </div>
                         <div className={s.location}>

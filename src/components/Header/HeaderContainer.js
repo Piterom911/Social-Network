@@ -2,23 +2,20 @@ import React from "react";
 import Header from "./Header";
 import {isAuthFetching, setFullName, setMeLogged, setUserData} from "../../redux/authReducer";
 import {connect} from "react-redux";
-import * as axios from "axios";
+import {authAPI, profileAPI} from "../../API/api";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
         this.props.isAuthFetching(true);
-        axios.get("https://social-network.samuraijs.com/api/1.0/auth/me", {
-            withCredentials: true
-        })
+        authAPI.authMe()
             .then(response => {
-                let {id, login, email} = response.data.data;
+                let {id, login, email} = response.data;
                 this.props.setUserData(id, login, email);
                 this.props.isAuthFetching(false);
                 this.props.setMeLogged(true);
-                axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${response.data.data.id}`)
-                    .then( user => {
-                        this.props.setFullName(user.data.fullName);
-                        // console.log(user.data)
+                    profileAPI.getProfileID(response.data.id)
+                        .then( user => {
+                        this.props.setFullName(user.fullName);
                     })
             })
     }
