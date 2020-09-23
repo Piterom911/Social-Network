@@ -8,6 +8,7 @@ import Images from "./Images/Images";
 import Videos from "./Videos/Videos";
 import PostsContainer from "./Posts/PostsContainer";
 import UsersContainer from "./Nearby/UsersContainer";
+import Login from "./Login/Login";
 
 const Content = () => {
     return (
@@ -17,6 +18,7 @@ const Content = () => {
             <Route path="/posts" render={ () => <PostsContainer/> }/>
             <Route exact path="/" render={ () => <PostsContainer/> }/>
             <Route path="/users" render={ () => <UsersContainer/>}/>
+            <Route path="/login" render={ () => <Login/>}/>
             <Route path="/friends" component={Friends}/>
             <Route path="/images" component={Images}/>
             <Route path="/videos" component={Videos}/>

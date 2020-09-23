@@ -2,7 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getUserProfile} from "../../../redux/profileReducer";
-import {withRouter} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -14,12 +14,15 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        if(!this.props.isLogged) {
+            return <Redirect to="/login"/>
+        }
         return <Profile {...this.props}/>
     }
 }
 
 let ProfileWithRouter = withRouter(ProfileContainer);
 
-let mapStateToProps = (state) => ({profile: state.profile});
+let mapStateToProps = (state) => ({profile: state.profile, isLogged: state.auth.isLogged});
 
 export default connect(mapStateToProps, {getUserProfile})(ProfileWithRouter);

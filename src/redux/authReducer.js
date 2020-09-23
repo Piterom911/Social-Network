@@ -52,14 +52,16 @@ export const getUserData = () => {
         dispatch(isAuthFetching(true));
         authAPI.authMe()
             .then(response => {
-                let {id, login, email} = response.data;
-                dispatch(setUserData(id, login, email));
+                if(response.resultCode === 0) {
+                    let {id, login, email} = response.data;
+                    dispatch(setMeLogged(true));
+                    dispatch(setUserData(id, login, email));
+                    profileAPI.getProfileID(response.data.id)
+                        .then( user => {
+                            dispatch(setFullName(user.fullName));
+                        });
+                }
                 dispatch(isAuthFetching(false));
-                dispatch(setMeLogged(true));
-                profileAPI.getProfileID(response.data.id)
-                    .then( user => {
-                        dispatch(setFullName(user.fullName));
-                    })
             })
     }
 };

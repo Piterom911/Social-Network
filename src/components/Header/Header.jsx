@@ -32,7 +32,7 @@ const Header = (props) => {
                         ? <Preloader/>
                         : (props.isLogged
                             ? <span><NavLink className={s.logged} to="/profile">{props.fullName}</NavLink></span>
-                            : <NavLink className={s.login} to="/auth">Login</NavLink>)}
+                            : <NavLink className={s.login} to="/login">Login</NavLink>)}
                     </div>
                 </nav>
             </div>
