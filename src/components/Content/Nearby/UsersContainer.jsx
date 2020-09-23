@@ -2,33 +2,20 @@ import {connect} from "react-redux";
 import {
     follow,
     setCurrentPage,
-    setUsers,
     unfollow,
-    setTotalUsersCount,
-    toggleIsFetching
+    getUsers
 } from "../../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
-import {usersAPI} from "../../../API/api";
 
 class UsersApiComponent extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(1, this.props.pageSize).then( data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount)
-        })
+        this.props.getUsers(1, this.props.pageSize);
     }
 
     onSetCurrentPage = (page) => {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(page);
-        usersAPI.getUsers(page, this.props.pageSize).then( data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items)
-        })
+        this.props.getUsers(page, this.props.pageSize)
     };
 
     render() {
@@ -55,6 +42,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const UsersContainer = connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})(UsersApiComponent);
+const UsersContainer = connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers})(UsersApiComponent);
 
 export default UsersContainer;

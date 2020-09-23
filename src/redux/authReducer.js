@@ -1,3 +1,5 @@
+import {authAPI, profileAPI} from "../API/api";
+
 const SET_USER_DATA = "SET_USER_DATA";
 const IS_FETCHING = "IS_FETCHING";
 const SET_ME_LOGGED = "SET_ME_LOGGED";
@@ -44,5 +46,22 @@ export const setUserData = (id, login, email) => ({type: SET_USER_DATA, data: {i
 export const isAuthFetching = (isFetching) => ({type: IS_FETCHING, isFetching});
 export const setMeLogged = isLogged => ({type: SET_ME_LOGGED, isLogged});
 export const setFullName = fullName => ({type: SET_FULL_NAME, fullName});
+
+export const getUserData = () => {
+    return dispatch => {
+        dispatch(isAuthFetching(true));
+        authAPI.authMe()
+            .then(response => {
+                let {id, login, email} = response.data;
+                dispatch(setUserData(id, login, email));
+                dispatch(isAuthFetching(false));
+                dispatch(setMeLogged(true));
+                profileAPI.getProfileID(response.data.id)
+                    .then( user => {
+                        dispatch(setFullName(user.fullName));
+                    })
+            })
+    }
+};
 
 export default authReducer;

@@ -1,10 +1,11 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import postReducer from "./postReducer";
 import messageReducer from "./messageReducer";
 import sidebarReducer from "./sidebarReducer";
 import usersReducer from "./usersReducer";
 import profileReducer from "./profileReducer";
 import authReducer from "./authReducer";
+import thunkMiddleware from "redux-thunk";
 
 const reducers = combineReducers({
     postPage: postReducer,
@@ -15,7 +16,7 @@ const reducers = combineReducers({
     auth: authReducer
 });
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store;
 
