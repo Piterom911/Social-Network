@@ -7,6 +7,8 @@ import {
 } from "../../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
+import {compose} from "redux";
+import withAuthRedirect from "../../../hoc/CheckAuth/withAuthRerender";
 
 class UsersApiComponent extends React.Component {
 
@@ -42,6 +44,7 @@ const mapStateToProps = (state) => {
     }
 };
 
-const UsersContainer = connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers})(UsersApiComponent);
-
-export default UsersContainer;
+export default compose(
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers}),
+    withAuthRedirect)
+(UsersApiComponent);

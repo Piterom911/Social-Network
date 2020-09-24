@@ -7,7 +7,7 @@ import Friends from "./Friends/Friends";
 import Images from "./Images/Images";
 import Videos from "./Videos/Videos";
 import PostsContainer from "./Posts/PostsContainer";
-import UsersContainer from "./Nearby/UsersContainer";
+import UsersContainer from "./Users/UsersContainer";
 import Login from "./Login/Login";
 
 const Content = () => {

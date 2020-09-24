@@ -1,5 +1,7 @@
 import {connect} from "react-redux";
 import Posts from "./Posts";
+import {compose} from "redux";
+import withAuthRedirect from "../../../hoc/CheckAuth/withAuthRerender";
 
 const mapStateToProps = (state) => {
     return {
@@ -7,11 +9,7 @@ const mapStateToProps = (state) => {
         newValue: state.postPage.newValue
     }
 };
-
-const mapDispatchToProps = (dispatch) => {
-    return {}
-};
-
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
-
-export default PostsContainer;
+export default compose(
+    connect(mapStateToProps, {}),
+    withAuthRedirect)
+(Posts);

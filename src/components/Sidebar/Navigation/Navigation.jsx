@@ -12,8 +12,8 @@ import {faVideo} from '@fortawesome/free-solid-svg-icons'
 const Navigation = () => {
     return (
         <ul className={s.navigation}>
-            <li className={s.item}><FontAwesomeIcon className={`${s.icon} iGreen`} icon={faNewspaper}/><NavLink to="/posts" activeClassName={s.active}>My Newsfeed</NavLink></li>
-            <li className={s.item}><FontAwesomeIcon className={`${s.icon} iPurple`} icon={faUsers}/><NavLink to="/users" activeClassName={s.active}>Random Users</NavLink></li>
+            <li className={s.item}><FontAwesomeIcon className={`${s.icon} iGreen`} icon={faNewspaper}/><NavLink to="/posts" activeClassName={s.active}>My Posts</NavLink></li>
+            <li className={s.item}><FontAwesomeIcon className={`${s.icon} iPurple`} icon={faUsers}/><NavLink to="/users" activeClassName={s.active}>Users</NavLink></li>
             <li className={s.item}><FontAwesomeIcon className={`${s.icon} iPink`} icon={faUserFriends}/><NavLink to="/friends" activeClassName={s.active}>Friends</NavLink></li>
             <li className={s.item}><FontAwesomeIcon className={`${s.icon} iOrange`} icon={faComments}/><NavLink to="/messages" activeClassName={s.active}>Messages</NavLink></li>
             <li className={s.item}><FontAwesomeIcon className={`${s.icon} iBlue`} icon={faImages}/><NavLink to="/images" activeClassName={s.active}>Images</NavLink></li>
