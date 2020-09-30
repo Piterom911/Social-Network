@@ -3,7 +3,7 @@ import {
     follow,
     setCurrentPage,
     unfollow,
-    getUsers
+    getUsers, toggleIsSettingFollow
 } from "../../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
@@ -30,6 +30,8 @@ class UsersApiComponent extends React.Component {
             unfollow={this.props.unfollow}
             follow={this.props.follow}
             isFetching={this.props.isFetching}
+            settingFollowUsers={this.props.settingFollowUsers}
+            toggleIsSettingFollow={this.props.toggleIsSettingFollow}
         />
     }
 }
@@ -40,11 +42,12 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.users.totalUsersCount,
         pageSize: state.users.pageSize,
         currentPage: state.users.currentPage,
-        isFetching: state.users.isFetching
+        isFetching: state.users.isFetching,
+        settingFollowUsers: state.users.settingFollowUsers,
     }
 };
 
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers}),
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers, toggleIsSettingFollow}),
     withAuthRedirect)
 (UsersApiComponent);

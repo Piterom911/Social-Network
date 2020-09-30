@@ -34,8 +34,8 @@ let Users = (props) => {
                     <div className={s.nameBox}>
                         <h5 className={s.name}><NavLink to={"/profile/" + u.id}>{u.name}</NavLink></h5>
                         {u.followed
-                            ? <button className={s.unfollow} onClick={() => {props.unfollow(u.id);}}>Unfollow</button>
-                            : <button className={s.follow} onClick={() => {props.follow(u.id);}}>Follow</button>}
+                            ? <button className={s.unfollow} disabled={props.settingFollowUsers.some(id => u.id === id)} onClick={() => {props.unfollow(u.id);}}>Unfollow</button>
+                            : <button className={s.follow} disabled={props.settingFollowUsers.some(id => u.id === id)} onClick={() => {props.follow(u.id);}}>Follow</button>}
                     </div>
                     <div className={s.location}>
                         <span className={s.city}>{"Vancouver"} / </span>

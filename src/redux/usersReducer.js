@@ -6,13 +6,15 @@ const SET_USERS = "SET_USERS";
 const CHANGE_PAGE = "CHANGE_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const TOGGLE_IS_SETTING_FOLLOW = "TOGGLE_IS_SETTING_FOLLOW";
 
 let initialState = {
     users: [],
     totalUsersCount: 0,
     pageSize: 10,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
+    settingFollowUsers: []
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -45,6 +47,12 @@ const usersReducer = (state = initialState, action) => {
             return { ...state, totalUsersCount: action.totalUsersCount};
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetching: action.isFetching};
+        case TOGGLE_IS_SETTING_FOLLOW:
+            return { ...state,
+                settingFollowUsers: action.isSettingFollow
+                    ? [...state.settingFollowUsers, action.userId]
+                    : state.settingFollowUsers.filter(id => id !== action.userId)
+            };
         default: return state
     }
 };
@@ -55,6 +63,7 @@ export const setUsers = (users) => ( {type: SET_USERS, users} );
 export const setCurrentPage = (pageCount) => ( {type: CHANGE_PAGE, pageCount} );
 export const setTotalUsersCount = (totalUsersCount) => ( {type: SET_TOTAL_USERS_COUNT, totalUsersCount} );
 export const toggleIsFetching = (isFetching) => ( {type: TOGGLE_IS_FETCHING, isFetching} );
+export const toggleIsSettingFollow = (isSettingFollow, userId) => ( {type: TOGGLE_IS_SETTING_FOLLOW, isSettingFollow, userId} );
 
 export const getUsers = (page, pageSize) => {
     return (dispatch) => {
@@ -70,9 +79,11 @@ export const getUsers = (page, pageSize) => {
 
 export const follow = (userID) => {
     return (dispatch) => {
+        dispatch(toggleIsSettingFollow(true, userID));
         followAPI.follow(userID).then( data => {
             if (data.resultCode === 0) {
                 dispatch(followSuccess(userID));
+                dispatch(toggleIsSettingFollow(false, userID));
             }
         })
     }
@@ -80,9 +91,11 @@ export const follow = (userID) => {
 
 export const unfollow = (userID) => {
     return (dispatch) => {
+        dispatch(toggleIsSettingFollow(true, userID));
         followAPI.unfollow(userID).then( data => {
             if (data.resultCode === 0) {
                 dispatch(unfollowSuccess(userID));
+                dispatch(toggleIsSettingFollow(false, userID));
             }
         })
     }
