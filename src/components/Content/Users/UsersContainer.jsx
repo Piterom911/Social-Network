@@ -8,7 +8,7 @@ import {
 import React from "react";
 import Users from "./Users";
 import {compose} from "redux";
-import withAuthRedirect from "../../../hoc/CheckAuth/withAuthRerender";
+import withAuthRedirect from "../../../HOC/CheckAuth/withAuthRerender";
 
 class UsersApiComponent extends React.Component {
 

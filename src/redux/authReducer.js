@@ -53,9 +53,11 @@ export const getUserData = () => {
         authAPI.authMe()
             .then(response => {
                 if(response.resultCode === 0) {
-                    let {id, login, email} = response.data;
                     dispatch(setMeLogged(true));
+
+                    let {id, login, email} = response.data;
                     dispatch(setUserData(id, login, email));
+
                     profileAPI.getProfileID(response.data.id)
                         .then( user => {
                             dispatch(setFullName(user.fullName));

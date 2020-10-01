@@ -1,4 +1,5 @@
 import React from "react";
+import withAuthRedirect from "../../../HOC/CheckAuth/withAuthRerender";
 
 const Login = () => {
     return (
@@ -6,4 +7,4 @@ const Login = () => {
     )
 };
 
-export default Login;
+export default withAuthRedirect(Login);
