@@ -18,19 +18,18 @@
   }
 
   .text {
-    border: 1px solid #ccc;
+    border: 1px solid $txtBlue;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     height: auto;
     margin-right: 20px;
     background: #fff;
     border-radius: 4px;
-    color: #939598;
+    color: $txtBlue;
     display: block;
     width: 100%;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
-    background-image: none;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
@@ -38,9 +37,16 @@
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
 
-    &::placeholder {
-      color: $txtGrey
+    &:focus, &:active {
+      outline: none;
     }
+  }
+
+  span.text {
+    border: 1px dashed #ccc;
+    position: relative;
+    color: $txtGrey;
+
   }
 
   .icons {

@@ -6,20 +6,51 @@ import { faImages } from '@fortawesome/free-solid-svg-icons'
 import { faVideo } from '@fortawesome/free-solid-svg-icons'
 import { faMap } from '@fortawesome/free-solid-svg-icons'
 
-const Top = () => {
-    return (
-        <form className={s.top}>
-            <img src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="" className={s.ava}/>
-            <textarea placeholder="Write what you wish" className={s.text}></textarea>
-            <div className={s.icons}>
-                <a href="/icon" className={s.link}><FontAwesomeIcon className={s.icon} icon={faEdit}/></a>
-                <a href="/icon" className={s.link}><FontAwesomeIcon className={s.icon} icon={faImages}/></a>
-                <a href="/icon" className={s.link}><FontAwesomeIcon className={s.icon} icon={faVideo}/></a>
-                <a href="/icon" className={s.link}><FontAwesomeIcon className={s.icon} icon={faMap}/></a>
+class Top extends React.Component{
+    constructor(props) {
+        super(props);
+        this.newRef = React.createRef();
+    }
+
+    state = {
+        editMode: false,
+        defaultValue: "Write what you wish",
+    };
+
+    onValueChange = (newValue) => {
+        this.setState({
+            defaultValue: newValue
+        })
+    };
+
+    onEdit = () => {
+        this.setState({
+            editMode: true
+        });
+    };
+
+    onBlur = () => {
+        this.setState({
+            editMode: false
+        });
+    };
+
+    render() {
+        return (
+            <div className={s.top}>
+                <img src="https://themified.com/friend-finder/images/users/user-1.jpg" alt="" className={s.ava}/>
+                {this.state.editMode && <textarea ref={this.newRef} onChange={() => {this.onValueChange(this.newRef.current.value)}} value={this.state.defaultValue} autoFocus onBlur={this.onBlur} className={s.text}/>}
+                {!this.state.editMode && <span onClick={this.onEdit} className={s.text}>{this.state.defaultValue}</span>}
+                <div className={s.icons}>
+                    <span className={s.link}><FontAwesomeIcon className={s.icon} icon={faEdit}/></span>
+                    <span className={s.link}><FontAwesomeIcon className={s.icon} icon={faImages}/></span>
+                    <span className={s.link}><FontAwesomeIcon className={s.icon} icon={faVideo}/></span>
+                    <span className={s.link}><FontAwesomeIcon className={s.icon} icon={faMap}/></span>
+                </div>
+                <button className={s.submit}>Publish</button>
             </div>
-            <button className={s.submit}>Publish</button>
-        </form>
-    )
-};
+        )
+    }
+}
 
 export default Top;
