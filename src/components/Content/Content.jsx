@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./Content.module.scss";
-import Top from "./Top/Top";
 import Messages from "./Messages/Messages";
 import {Route} from "react-router-dom";
 import Friends from "./Friends/Friends";
@@ -9,11 +8,12 @@ import Videos from "./Videos/Videos";
 import PostsContainer from "./Posts/PostsContainer";
 import UsersContainer from "./Users/UsersContainer";
 import Login from "./Login/Login";
+import TopContainer from "./Top/TopContainer";
 
 const Content = () => {
     return (
         <div className={s.content}>
-            <Top/>
+            <TopContainer/>
             <Route path="/messages" render={ () => <Messages/> } />
             <Route path="/posts" render={ () => <PostsContainer/> }/>
             <Route exact path="/" render={ () => <PostsContainer/> }/>

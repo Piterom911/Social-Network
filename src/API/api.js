@@ -19,7 +19,14 @@ export const usersAPI = {
 export const profileAPI = {
     getProfileID(profileID) {
         return axiosInstance.get(`profile/${profileID}`)
-            .then( response => response.data)
+            .then( response => response.data )
+    },
+    getProfileStatus(profileID) {
+        return axiosInstance.get(`profile/status/${profileID}`)
+            .then( response => response.data )
+    },
+    updateProfileStatus(status) {
+        return axiosInstance.put(`profile/status`, {status})
     }
 };
 

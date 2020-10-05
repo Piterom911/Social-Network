@@ -25,8 +25,6 @@ let Profile = (props) => {
 
     socialItems(props.profile.profile.contacts);
 
-
-
     return (
         <>
             <div className={s.top} style={{background: "#eee url(" + (props.profile.profile.photos.large ? props.profile.profile.photos.large : profileBg) + ") no-repeat center / cover"}}>
@@ -34,7 +32,7 @@ let Profile = (props) => {
                     <div className={s.avaBox}>
                         <div className={s.ava} style={{background: "#eee url(" + (props.profile.profile.photos.small ? props.profile.profile.photos.small : userIcon) + ") no-repeat center / cover"}}/>
                         <h1>{props.profile.profile.fullName}</h1>
-                        <span className={s.position}>{props.profile.profile.aboutMe}</span>
+                        <span className={s.position}>{props.profile.status}</span>
                     </div>
                     <ul className={s.navigation}>
                         <li><NavLink to="/someLink">About</NavLink></li>
