@@ -23,7 +23,7 @@ const Top = props => {
             {editMode && <textarea
                 ref={newRef}
                 onChange={() => {onValueChange(newRef.current.value)}}
-                value={defaultValue} autoFocus onBlur={onEdit}
+                value={props.status} autoFocus onBlur={onEdit}
                 className={s.text}/>}
             {!editMode && <span
                 onClick={onEdit}

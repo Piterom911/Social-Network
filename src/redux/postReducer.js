@@ -1,5 +1,4 @@
-const ADD_NEW_POST = "ADD-NEW-POST";
-const ADD_NEW_VALUE_TO_POST_TEXTAREA = "ADD-NEW-VALUE-TO-POST-TEXTAREA";
+const ADD_NEW_COMMENT = "ADD_NEW_COMMENT";
 
 let initialState = {
     oldMessages: [
@@ -14,30 +13,24 @@ let initialState = {
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
         }
     ],
-    newValue: "ddd"
 };
 
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_NEW_POST:
+        case ADD_NEW_COMMENT:
             let newPost = {
                 name: "Diana",
                 img: "https://themified.com/friend-finder/images/users/user-11.jpg",
-                text: state.newValue
+                text: action.newComment
             };
             return {...state,
                 oldMessages: [...state.oldMessages, newPost],
-                newValue: ""
             };
-        case ADD_NEW_VALUE_TO_POST_TEXTAREA:
-            return {...state,
-                newValue: action.value};
         default:
             return state;
     }
 };
 
-export const addPostActionCreator = () => ({ type: ADD_NEW_POST });
-export const newValueActionCreator = (text) => ({type: ADD_NEW_VALUE_TO_POST_TEXTAREA, value: text});
+export const addPostComment = newComment => ({ type: ADD_NEW_COMMENT, newComment });
 
 export default postReducer;

@@ -1,5 +1,4 @@
-const ADD_NEW_MESSAGE_BODY = "ADD-NEW-MESSAGE-BODY";
-const SEND_MESSAGE = "SEND-MESSAGE";
+const SEND_NEW_MESSAGE = "SEND_NEW_MESSAGE";
 
 let initialState = {
     contacts: [
@@ -80,29 +79,22 @@ let initialState = {
             message: "Oh... Do not be afraid. It is no matter any more. You will know soon)"
         }
     ],
-        newMessageBody: "Hello"
 };
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SEND_MESSAGE:
+        case SEND_NEW_MESSAGE:
             let newMessage = {
                 id: 1,
                 ava: "https://themified.com/friend-finder/images/users/user-2.jpg",
                 me: "notMe",
                 name: "Linda Lohan",
                 time: "3 days ago",
-                message: state.newMessageBody
+                message: action.newMessage
             };
 
             return {...state,
                 messages: [...state.messages, newMessage],
-                newMessageBody: ""
-            };
-        case ADD_NEW_MESSAGE_BODY:
-            return {
-                ...state,
-                newMessageBody: action.body
             };
 
         default:
@@ -110,7 +102,6 @@ const messageReducer = (state = initialState, action) => {
     }
 };
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
-export const updateNewMessageBodyCreator = (text) => ( {type: ADD_NEW_MESSAGE_BODY, body: text} );
+export const sendNewMessage = newMessage => ({ type: SEND_NEW_MESSAGE, newMessage });
 
 export default messageReducer;

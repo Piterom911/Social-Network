@@ -1,9 +1,40 @@
 import React from "react";
 import withAuthRedirect from "../../../HOC/CheckAuth/withAuthRerender";
+import {Field, Form} from "react-final-form";
+import s from "./Login.module.scss"
+
+const LoginForm = (props) => (
+    <Form
+        onSubmit={props.onSubmit}
+        render={({handleSubmit}) => (
+            <form className={s.form} onSubmit={handleSubmit}>
+                <div className={s.inputs}>
+                    <Field placeholder={"Login"} name={"userName"} component={"input"}/>
+                    <Field placeholder={"Password"} name={"password"} component={"input"} type={"password"}/>
+                </div>
+                <div>
+                    <label className={s.myCheckbox}>
+                        <Field className={s.checkbox} name={"rememberMe"} component={"input"} type={"checkbox"}/>Remember me.<span/>
+                    </label>
+                </div>
+                <div>
+                    <button>Login</button>
+                </div>
+            </form>
+        )}
+    />
+);
 
 const Login = () => {
+    const onSubmit = formData => {
+        console.log(formData)
+    };
+
     return (
-        <h1>LOGIN</h1>
+        <div className={s.wrapper}>
+            <h1 className={s.heading}>Please, log in.</h1>
+            <LoginForm onSubmit={onSubmit}/>
+        </div>
     )
 };
 

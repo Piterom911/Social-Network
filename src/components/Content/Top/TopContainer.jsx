@@ -8,6 +8,9 @@ class TopContainer extends React.Component{
         this.props.getProfileStatus(11450)
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+    }
+
     render() {
         return <Top {...this.props}/>
     }

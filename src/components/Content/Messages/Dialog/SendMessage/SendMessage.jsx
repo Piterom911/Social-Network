@@ -1,20 +1,27 @@
 import React from "react";
 import s from "./SendMessage.module.scss"
+import {Field, Form} from "react-final-form";
 
 const SendMessage = (props) => {
-    const sendNewMessage = (e) => {
-        e.preventDefault();
-        props.sendNewMessage();
+    const onSubmit = formObj => {
+        props.sendNewMessage(formObj.newMessage)
     };
-    const onNewMessageChange = (e) => {
-        let value = e.target.value;
-        props.newMessageChange(value);
+
+    const FinalMessageForm = props => {
+        return (
+            <Form onSubmit={onSubmit}>
+                {({handleSubmit}) => (
+                    <form onSubmit={handleSubmit} className={s.form}>
+                        <Field component={"textarea"} name={"newMessage"} className={s.text} placeholder="Type your message"/>
+                        <button className={s.btn} type="submit">Send</button>
+                    </form>
+                )}
+            </Form>
+        )
     };
+
     return (
-        <form action="" className={s.form}>
-            <textarea value={props.newMessageBody} onChange={onNewMessageChange} className={s.text} placeholder="Type your message"></textarea>
-            <button onClick={sendNewMessage} className={s.btn} type="submit">Send</button>
-        </form>
+        <FinalMessageForm {...props}/>
     )
 };
 
