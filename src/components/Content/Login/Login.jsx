@@ -2,6 +2,8 @@ import React from "react";
 import withAuthRedirect from "../../../HOC/CheckAuth/withAuthRerender";
 import {Field, Form} from "react-final-form";
 import s from "./Login.module.scss"
+import {Input} from "../../commonComponents/FormControls/FormControls";
+import {composeValidators, maxValue, minValue, required} from "../../../utils/validators";
 
 const LoginForm = (props) => (
     <Form
@@ -9,8 +11,8 @@ const LoginForm = (props) => (
         render={({handleSubmit}) => (
             <form className={s.form} onSubmit={handleSubmit}>
                 <div className={s.inputs}>
-                    <Field placeholder={"Login"} name={"userName"} component={"input"}/>
-                    <Field placeholder={"Password"} name={"password"} component={"input"} type={"password"}/>
+                    <Field validate={composeValidators(required, minValue(3), maxValue(20))} placeholder={"Login"} name={"userName"} component={Input}/>
+                    <Field validate={composeValidators(required, minValue(6), maxValue(20))} placeholder={"Password"} name={"password"} component={Input} type={"password"}/>
                 </div>
                 <div>
                     <label className={s.myCheckbox}>
